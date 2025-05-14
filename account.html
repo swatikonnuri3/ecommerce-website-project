@@ -4,143 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Shubha Stores - Your one-stop shop for all your needs.">
-    <title> All products -Shubha Stores</title>
+    <title>Account - Shubha Stores</title>
     <link rel="stylesheet" href="styles.css"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css">
-    
 </head>
 <body>
+
+    <!-- Navbar -->
     <div class="header">
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <img src="images/logo.png" alt="Shubha Stores Logo" width="125px">
-            </div>
-            <nav>
-                <ul id="MenuItems"> 
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Account</a></li>
-                </ul>
-            </nav>
-            <img src="images/cart1.jpg" width="30px" height="30px">
-            <img src="images/menu .png" class="menu-icon" 
-            onclick="menutoggle()">
-        </div>
-        
-        </div>
-        <!---account -page-->
-        <div class="account-page">
-            <div class="container">
-                <div class="row">
-                    <div class="col-2">
-                        <img src="images/image1.png" width="100%">
-                    </div>
-                    <div class="col-2">
-                        <div class="form-container">
-                            <div class="form-btn">
-                                <span onclick="login()">Login</span>
-                                <span onclick="register()">Register</span>
-                                <hr id="indicator">
-                            </div>
-                            <form id="Loginform">
-                                <input type="text" placeholder="Username">
-                                <input type="password" placeholder="password">
-                                <button type="submit" class="btn">Login</button>
-                                <a href="">Forgot Password</a>
-                            </form>
-                            <form id="Regiform">
-                                <input type="text" placeholder="Username">
-                                <input type="email" placeholder="email">
-                                <input type="password" placeholder="password">
-                                <button type="submit" class="btn">Register</button>
-                                
-                            </form>
-                            
-                        </div>
-                    </div>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Shubha Stores Logo" width="125px">
                 </div>
+                <nav>
+                    <ul id="MenuItems"> 
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="account.html">Account</a></li>
+                    </ul>
+                </nav>
+                <img src="images/cart1.jpg" width="30px" height="30px">
+                <img src="images/menu .png" class="menu-icon" onclick="menutoggle()">
             </div>
         </div>
-
-<!---------footer------>
-<div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="footer-col-1">
-                <h3>Download Our App</h3>
-                <p>Download App For Android and ios mobile phone</p>
-                <div class="app-logo">
-                    <img src="images/playstore.jpg">
-                    <img src="images/apple store.png">
-                </div>
-            </div>
-            <div class="footer-col-2">
-                <img src="images/logo.png">
-                <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p> 
-            </div>
-            <div class="footer-col-3">
-                <h3>Usefull links</h3>
-                <ul>
-                    <li>coupons</li>
-                    <li>blog Post</li>
-                    <li>Return policy</li>
-                    <li>Join affiliate</li>
-                </ul>
-            </div>
-            <div class="footer-col-4">
-                <h3>Follow us</h3>
-                <ul>
-                    <li>Facebook</li>
-                    <li>Twitter</li>
-                    <li>Instagram</li>
-                    <li>YouTube</li>
-                </ul>
-            </div>
-
-        </div>
-        <hr>
-        <p class="Copyright">Copyright 2020 -Easy Tutorials</p>
-
     </div>
-</div>
-<!---------js for toggle menu-------->
-<script>
-    var MenuItems=document.getElementById("MenuItems");
-    MenuItems.style.maxHeight="0px";
-    function menutoggle(){
-        if(MenuItems.style.maxHeight="0px"){
-            MenuItems.style.maxHeight="200px"
-        }
-        else{
-            MenuItems.style.maxHeight="0px"
-        }
-        
-    }
-</script>
-<!---------js for toggle form-------->
-<script>
-    var Loginform=document.getElementById("Loginform");
-    var Regiform=document.getElementById("Regiform");
-    var indicator=document.getElementById("indicator")
-    function register(){
-        Regiform.style.transform="translatex(0px)";
-        Loginform.style.transform="translatex(0px)";
-        indicator.style.transform="translatex(100px)";
-    }
-    function login(){
-        Regiform.style.transform="translatex(300px)";
-        Loginform.style.transform="translatex(300px)";
-        indicator.style.transform="translatex(0px)";
-    }
-</script>
 
+    <!-- Account page -->
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="images/image1.png" width="100%">
+                </div>
+                <div class="col-2">
+                    <div class="form-container">
+                        <div class="form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Register</span>
+                            <hr id="indicator">
+                        </div>
+                        <form id="Loginform" onsubmit="return handleLogin(event)">
+                            <input type="text" id="loginUsername" placeholder="Username" required>
+                            <input type="password" id="loginPassword" placeholder="Password" required>
+                            <button type="submit" class="btn">Login</button>
+                        </form>
+                        <form id="Regiform" onsubmit="return handleRegister(event)">
+                            <input type="text" id="regUsername" placeholder="Username" required>
+                            <input type="email" id="regEmail" placeholder="Email" required>
+                            <input type="password" id="regPassword" placeholder="Password" required>
+                            <button type="submit" class="btn">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Footer (Optional) -->
+    <!-- You can also add your footer here as in your original file -->
+
+    <!-- Scripts -->
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+
+        function menutoggle() {
+            if (MenuItems.style.maxHeight === "0px") {
+                MenuItems.style.maxHeight = "200px";
+            } else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+
+        var Loginform = document.getElementById("Loginform");
+        var Regiform = document.getElementById("Regiform");
+        var indicator = document.getElementById("indicator");
+
+        var registeredUser = null;
+
+        function register() {
+            Regiform.style.transform = "translateX(0px)";
+            Loginform.style.transform = "translateX(0px)";
+            indicator.style.transform = "translateX(100px)";
+        }
+
+        function login() {
+            Regiform.style.transform = "translateX(300px)";
+            Loginform.style.transform = "translateX(300px)";
+            indicator.style.transform = "translateX(0px)";
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            var username = document.getElementById("regUsername").value;
+            var email = document.getElementById("regEmail").value;
+            var password = document.getElementById("regPassword").value;
+
+            registeredUser = {
+                username: username,
+                email: email,
+                password: password
+            };
+
+            alert("Registration successful! Now you can login.");
+            login();
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            if (!registeredUser) {
+                alert("You haven't registered yet. Please register first.");
+                register();
+                return false;
+            }
+
+            var loginUsername = document.getElementById("loginUsername").value;
+            var loginPassword = document.getElementById("loginPassword").value;
+
+            if (loginUsername === registeredUser.username && loginPassword === registeredUser.password) {
+                alert("Login successful! Welcome, " + registeredUser.username);
+                window.location.href = "index.html"; 
+            } else {
+                alert("Invalid credentials. Please try again.");
+            }
+            return false;
+        }
+    </script>
 
 </body>
 </html>
